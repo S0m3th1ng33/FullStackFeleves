@@ -19,25 +19,42 @@ namespace WeatherForecastAPI.Services
             var weatherDataList = new List<WeatherData>();
             for (int i = 1; i <= 3; i++)
             {
-                var date = DateTime.UtcNow.AddDays(-i).ToString("yyyy-MM-dd");
-                var response = await _httpClient.GetAsync($"http://api.weatherapi.com/v1/history.json?key={_apiKey}&q=Budapest&dt={date}");
-                if (response.IsSuccessStatusCode)
+                try
                 {
-                    var content = await response.Content.ReadAsStringAsync();
-                    using JsonDocument doc = JsonDocument.Parse(content);
-                    var day = doc.RootElement.GetProperty("forecast").GetProperty("forecastday")[0].GetProperty("day");
-                    var condition = day.GetProperty("condition").GetProperty("text").GetString();
-                    var avgTemp = day.GetProperty("avgtemp_c").GetDouble();
-                    var maxWind = day.GetProperty("maxwind_kph").GetDouble();
-
-                    weatherDataList.Add(new WeatherData
+                    var date = DateTime.UtcNow.AddDays(-i).ToString("yyyy-MM-dd");
+                    var response = await _httpClient.GetAsync($"https://api.weatherapi.com/v1/history.json?key={_apiKey}&q=Budapest&dt={date}");
+                    if (response.IsSuccessStatusCode)
                     {
-                        Date = date,
-                        Condition = condition,
-                        AvgTempC = avgTemp,
-                        MaxWindKph = maxWind
-                    });
+                        var content = await response.Content.ReadAsStringAsync();
+                        using JsonDocument doc = JsonDocument.Parse(content);
+                        var day = doc.RootElement.GetProperty("forecast").GetProperty("forecastday")[0].GetProperty("day");
+                        var condition = day.GetProperty("condition").GetProperty("text").GetString();
+                        var avgTemp = day.GetProperty("avgtemp_c").GetDouble();
+                        var maxWind = day.GetProperty("maxwind_kph").GetDouble();
+
+                        weatherDataList.Add(new WeatherData
+                        {
+                            Date = date,
+                            Condition = condition,
+                            AvgTempC = avgTemp,
+                            MaxWindKph = maxWind
+                        });
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Failed to fetch data for {date}. Status code: {response.StatusCode}");
+                    }
                 }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"Exception while fetching weather data: {e.Message}");
+                }
+
+                if (weatherDataList.Count == 0)
+                {
+                    Console.WriteLine("Warning: No weather data was retrieved.");
+                }
+
             }
             return weatherDataList;
         }

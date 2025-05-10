@@ -22,34 +22,22 @@ namespace WeatherForecastAPI.Controllers
         {
             var pastWeather = await _weatherService.GetLastThreeDaysWeatherAsync();
 
-            if (pastWeather.Select(w => w.Condition).Distinct().Count() == 1)
+            // Mai időjárás
+            var todayWeather = pastWeather.First();
+
+            // Holnapi előrejelzés
+            string nextCondition = PredictNextCondition(todayWeather.Condition);
+
+            var forecast = new WeatherData
             {
-                string currentCondition = pastWeather[0].Condition;
-                string nextCondition = PredictNextCondition(currentCondition);
+                Date = DateTime.UtcNow.AddDays(1).ToString("yyyy-MM-dd"),
+                Condition = nextCondition,
+                AvgTempC = todayWeather.AvgTempC,
+                MaxWindKph = todayWeather.MaxWindKph,
+                Icon = GetWeatherIcon(nextCondition)
+            };
 
-                var avgTemp = pastWeather.Average(w => w.AvgTempC);
-                var avgWind = pastWeather.Average(w => w.MaxWindKph);
-
-                var forecast = new WeatherData
-                {
-                    Date = DateTime.UtcNow.ToString("yyyy-MM-dd"),
-                    Condition = nextCondition,
-                    AvgTempC = avgTemp,
-                    MaxWindKph = avgWind,
-                    Icon = GetWeatherIcon(nextCondition)
-                };
-
-                return Ok(forecast);
-            }
-
-            var randomWeather = new[] { "Sunny","Partly cloudy", "Overcast", "Rain", "Snow" }[random.Next(4)];
-            return Ok(new WeatherData
-            {
-                Date = DateTime.UtcNow.ToString("yyyy-MM-dd"),
-                Condition = randomWeather,
-                AvgTempC = pastWeather.Average(w => w.AvgTempC),
-                MaxWindKph = pastWeather.Average(w => w.MaxWindKph)
-            });
+            return Ok(new { today = todayWeather, forecast = forecast });
         }
 
         private string PredictNextCondition(string currentCondition)
@@ -72,11 +60,15 @@ namespace WeatherForecastAPI.Controllers
         {
             return condition switch
             {
-                "Snowy" => "Rainy",
-                "Rainy" => "Overcast",
-                "Overcast" => "Partly cloudy",
+                "Blizzard" => "Heavy snow",
+                "Heavy snow" => "Patchy snow",
+                "Patchy snow" => "Light snow",
+                "Light snow" => "Rain",
+                "Rain" => "Patchy rain",
+                "Patchy rain" => "Light rain",
+                "Light rain" => "Partly cloudy",
                 "Partly cloudy" => "Sunny",
-                _ => condition // Ha már napos, nem javul tovább
+                _ => "Sunny"
             };
         }
 
@@ -85,11 +77,16 @@ namespace WeatherForecastAPI.Controllers
             return condition switch
             {
                 "Sunny" => "Partly cloudy",
-                "Partly cloudy" => "Overcast",
-                "Overcast" => "Rainy",
-                "Rainy" => "Snowy",
-                _ => condition // Ha már esős, nem romlik tovább
+                "Partly cloudy" => "Light rain",
+                "Light rain" => "Patchy rain",
+                "Patchy rain" => "Rain",
+                "Rain" => "Light snow",
+                "Light snow" => "Patchy snow",
+                "Patchy snow" => "Heavy snow",
+                "Heavy snow" => "Blizzard",
+                _ => "Blizzard"
             };
+
         }
 
         private string GetWeatherIcon(string condition)
@@ -97,9 +94,14 @@ namespace WeatherForecastAPI.Controllers
             return condition switch
             {
                 "Sunny" => "https://cdn.weatherapi.com/weather/64x64/day/113.png",
-                "Overcast" => "https://cdn.weatherapi.com/weather/64x64/day/116.png",
-                "Rainy" => "https://cdn.weatherapi.com/weather/64x64/day/296.png",
-                "Snowy" => "https://cdn.weatherapi.com/weather/64x64/day/338.png",
+                "Partly cloudy" => "https://cdn.weatherapi.com/weather/64x64/day/116.png",
+                "Patchy rain" => "https://cdn.weatherapi.com/weather/64x64/day/176.png",
+                "Light rain" => "https://cdn.weatherapi.com/weather/64x64/day/296.png",
+                "Rain" => "https://cdn.weatherapi.com/weather/64x64/day/308.png",
+                "Light snow" => "https://cdn.weatherapi.com/weather/64x64/day/326.png",
+                "Patchy snow" => "https://cdn.weatherapi.com/weather/64x64/day/179.png",
+                "Heavy snow" => "https://cdn.weatherapi.com/weather/64x64/day/338.png",
+                "Blizzard" => "https://cdn.weatherapi.com/weather/64x64/day/371.png",
                 _ => "https://cdn.weatherapi.com/weather/64x64/day/122.png"
             };
         }

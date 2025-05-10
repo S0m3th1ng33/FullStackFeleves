@@ -1,12 +1,36 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     transition: background-color 0.5s ease;
 }
 
 .card {
-    width: 300px;
-    padding: 20px;
-    border-radius: 15px;
+    max-width: 400px;
+    margin: auto;
+    border-radius: 20px;
+    background-color: #ffffff;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+}
+
+.card-body {
+    text-align: center;
+}
+
+#weather-icon {
+    width: 120px;
+    margin: 20px auto;
+}
+
+button {
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
 }
 
 .sunny {
@@ -25,10 +49,18 @@ body {
     background-color: #e0f7fa;
 }
 
-.card-body {
-    text-align: center;
+h1, h3, p {
+    margin-bottom: 10px;
 }
 
-#weather-icon {
-    width: 100px;
+.lead {
+    font-size: 1.5rem;
+}
+
+.fs-4 {
+    font-size: 1.25rem;
+}
+
+.fw-bold {
+    font-weight: 600;
 }

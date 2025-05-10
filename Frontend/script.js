@@ -20,15 +20,18 @@ function updateBackground(condition) {
     }
 }
 
-function updateWeather(data) {
-    const conditionElem = document.getElementById("condition");
-    const temperatureElem = document.getElementById("temperature");
-    const windElem = document.getElementById("wind");
-    const iconElem = document.getElementById("weather-icon");
+function updateWeather(data, prefix) {
+    const conditionElem = document.getElementById(`${prefix}-condition`);
+    const temperatureElem = document.getElementById(`${prefix}-temperature`);
+    const windElem = document.getElementById(`${prefix}-wind`);
+    const iconElem = document.getElementById(`${prefix}-icon`);
+
+    const roundedTemp = data.avgTempC.toFixed(1);
+    const roundedWind = data.maxWindKph.toFixed(1);
 
     conditionElem.textContent = `Időjárás: ${data.condition}`;
-    temperatureElem.textContent = `Hőmérséklet: ${data.avgTempC} °C`;
-    windElem.textContent = `Szélsebesség: ${data.maxWindKph} km/h`;
+    temperatureElem.textContent = `Hőmérséklet: ${roundedTemp} °C`;
+    windElem.textContent = `Szélsebesség: ${roundedWind} km/h`;
 
     if (data.icon) {
         iconElem.src = data.icon;
@@ -44,11 +47,11 @@ async function getWeather() {
         if (!response.ok) throw new Error("Hiba az adatlekérés során");
 
         const data = await response.json();
-        updateWeather(data);
+        updateWeather(data.today, "today");
+        updateWeather(data.forecast, "forecast");
     } catch (error) {
         alert("Nem sikerült lekérni az időjárási adatokat.");
         console.error("Hiba: ", error);
     }
 }
-
 document.addEventListener("DOMContentLoaded", getWeather);

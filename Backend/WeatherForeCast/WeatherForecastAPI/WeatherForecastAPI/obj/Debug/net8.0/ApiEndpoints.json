@@ -1,0 +1,22 @@
+[
+  {
+    "ContainingType": "WeatherForecastAPI.Controllers.WeatherForecastController",
+    "Method": "GetForecast",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "WeatherForecastAPI.Models.WeatherData",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]

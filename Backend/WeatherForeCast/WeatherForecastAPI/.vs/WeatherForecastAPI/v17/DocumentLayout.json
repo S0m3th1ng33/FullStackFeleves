@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "D:\\Egyetem\\Negyedik felev\\fullstack\\IDOJARASELOREJELZO_A2KRNB_KEREKES\\root\\Backend\\WeatherForeCast\\WeatherForecastAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{18EFB36A-75D1-4188-B3E6-E89FA0D320DA}|WeatherForecastAPI\\WeatherForecastAPI.csproj|d:\\egyetem\\negyedik felev\\fullstack\\idojaraselorejelzo_a2krnb_kerekes\\root\\backend\\weatherforecast\\weatherforecastapi\\weatherforecastapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18EFB36A-75D1-4188-B3E6-E89FA0D320DA}|WeatherForecastAPI\\WeatherForecastAPI.csproj|solutionrelative:weatherforecastapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18EFB36A-75D1-4188-B3E6-E89FA0D320DA}|WeatherForecastAPI\\WeatherForecastAPI.csproj|d:\\egyetem\\negyedik felev\\fullstack\\idojaraselorejelzo_a2krnb_kerekes\\root\\backend\\weatherforecast\\weatherforecastapi\\weatherforecastapi\\models\\weatherdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18EFB36A-75D1-4188-B3E6-E89FA0D320DA}|WeatherForecastAPI\\WeatherForecastAPI.csproj|solutionrelative:weatherforecastapi\\models\\weatherdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{18EFB36A-75D1-4188-B3E6-E89FA0D320DA}|WeatherForecastAPI\\WeatherForecastAPI.csproj|d:\\egyetem\\negyedik felev\\fullstack\\idojaraselorejelzo_a2krnb_kerekes\\root\\backend\\weatherforecast\\weatherforecastapi\\weatherforecastapi\\services\\weatherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{18EFB36A-75D1-4188-B3E6-E89FA0D320DA}|WeatherForecastAPI\\WeatherForecastAPI.csproj|solutionrelative:weatherforecastapi\\services\\weatherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{18EFB36A-75D1-4188-B3E6-E89FA0D320DA}|WeatherForecastAPI\\WeatherForecastAPI.csproj|d:\\egyetem\\negyedik felev\\fullstack\\idojaraselorejelzo_a2krnb_kerekes\\root\\backend\\weatherforecast\\weatherforecastapi\\weatherforecastapi\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{18EFB36A-75D1-4188-B3E6-E89FA0D320DA}|WeatherForecastAPI\\WeatherForecastAPI.csproj|solutionrelative:weatherforecastapi\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{18EFB36A-75D1-4188-B3E6-E89FA0D320DA}|WeatherForecastAPI\\WeatherForecastAPI.csproj|d:\\egyetem\\negyedik felev\\fullstack\\idojaraselorejelzo_a2krnb_kerekes\\root\\backend\\weatherforecast\\weatherforecastapi\\weatherforecastapi\\models\\weatherdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{18EFB36A-75D1-4188-B3E6-E89FA0D320DA}|WeatherForecastAPI\\WeatherForecastAPI.csproj|solutionrelative:weatherforecastapi\\models\\weatherdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,25 +31,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "WeatherService.cs",
-              "DocumentMoniker": "D:\\Egyetem\\Negyedik felev\\fullstack\\IDOJARASELOREJELZO_A2KRNB_KEREKES\\root\\Backend\\WeatherForeCast\\WeatherForecastAPI\\WeatherForecastAPI\\Services\\WeatherService.cs",
-              "RelativeDocumentMoniker": "WeatherForecastAPI\\Services\\WeatherService.cs",
-              "ToolTip": "D:\\Egyetem\\Negyedik felev\\fullstack\\IDOJARASELOREJELZO_A2KRNB_KEREKES\\root\\Backend\\WeatherForeCast\\WeatherForecastAPI\\WeatherForecastAPI\\Services\\WeatherService.cs",
-              "RelativeToolTip": "WeatherForecastAPI\\Services\\WeatherService.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABYAAABlAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Egyetem\\Negyedik felev\\fullstack\\IDOJARASELOREJELZO_A2KRNB_KEREKES\\root\\Backend\\WeatherForeCast\\WeatherForecastAPI\\WeatherForecastAPI\\Program.cs",
+              "RelativeDocumentMoniker": "WeatherForecastAPI\\Program.cs",
+              "ToolTip": "D:\\Egyetem\\Negyedik felev\\fullstack\\IDOJARASELOREJELZO_A2KRNB_KEREKES\\root\\Backend\\WeatherForeCast\\WeatherForecastAPI\\WeatherForecastAPI\\Program.cs",
+              "RelativeToolTip": "WeatherForecastAPI\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-10T10:56:14.141Z",
+              "WhenOpened": "2025-05-10T11:36:04.029Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "WeatherForecastController.cs",
               "DocumentMoniker": "D:\\Egyetem\\Negyedik felev\\fullstack\\IDOJARASELOREJELZO_A2KRNB_KEREKES\\root\\Backend\\WeatherForeCast\\WeatherForecastAPI\\WeatherForecastAPI\\Controllers\\WeatherForecastController.cs",
               "RelativeDocumentMoniker": "WeatherForecastAPI\\Controllers\\WeatherForecastController.cs",
               "ToolTip": "D:\\Egyetem\\Negyedik felev\\fullstack\\IDOJARASELOREJELZO_A2KRNB_KEREKES\\root\\Backend\\WeatherForeCast\\WeatherForecastAPI\\WeatherForecastAPI\\Controllers\\WeatherForecastController.cs",
               "RelativeToolTip": "WeatherForecastAPI\\Controllers\\WeatherForecastController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAANAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAowDoAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-10T10:41:53.49Z",
               "EditorCaption": ""
@@ -53,12 +57,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "WeatherService.cs",
+              "DocumentMoniker": "D:\\Egyetem\\Negyedik felev\\fullstack\\IDOJARASELOREJELZO_A2KRNB_KEREKES\\root\\Backend\\WeatherForeCast\\WeatherForecastAPI\\WeatherForecastAPI\\Services\\WeatherService.cs",
+              "RelativeDocumentMoniker": "WeatherForecastAPI\\Services\\WeatherService.cs",
+              "ToolTip": "D:\\Egyetem\\Negyedik felev\\fullstack\\IDOJARASELOREJELZO_A2KRNB_KEREKES\\root\\Backend\\WeatherForeCast\\WeatherForecastAPI\\WeatherForecastAPI\\Services\\WeatherService.cs",
+              "RelativeToolTip": "WeatherForecastAPI\\Services\\WeatherService.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-10T10:56:14.141Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "WeatherData.cs",
               "DocumentMoniker": "D:\\Egyetem\\Negyedik felev\\fullstack\\IDOJARASELOREJELZO_A2KRNB_KEREKES\\root\\Backend\\WeatherForeCast\\WeatherForecastAPI\\WeatherForecastAPI\\Models\\WeatherData.cs",
               "RelativeDocumentMoniker": "WeatherForecastAPI\\Models\\WeatherData.cs",
               "ToolTip": "D:\\Egyetem\\Negyedik felev\\fullstack\\IDOJARASELOREJELZO_A2KRNB_KEREKES\\root\\Backend\\WeatherForeCast\\WeatherForecastAPI\\WeatherForecastAPI\\Models\\WeatherData.cs",
               "RelativeToolTip": "WeatherForecastAPI\\Models\\WeatherData.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-10T10:40:50.103Z",
               "EditorCaption": ""

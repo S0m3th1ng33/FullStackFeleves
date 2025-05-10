@@ -33,20 +33,40 @@ button:hover {
     background-color: #0056b3;
 }
 
-.sunny {
+.sunny, .clear {
     background-color: #f9d71c;
 }
 
-.cloudy {
+.cloudy, .overcast {
     background-color: #90a4ae;
+}
+
+.foggy {
+    background-color: #b0bec5;
 }
 
 .rainy {
     background-color: #4fc3f7;
 }
 
+.thunderstorm {
+    background-color: #616161;
+}
+
 .snowy {
     background-color: #e0f7fa;
+}
+
+.sleety {
+    background-color: #a0a0a0;
+}
+
+.hail {
+    background-color: #cfd8dc;
+}
+
+.default-weather {
+    background-color: #607d8b;
 }
 
 h1, h3, p {

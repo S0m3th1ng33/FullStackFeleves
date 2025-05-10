@@ -25,35 +25,68 @@ namespace WeatherForecastAPI.Controllers
             // Mai időjárás
             var todayWeather = pastWeather.First();
 
-            // Holnapi előrejelzés
-            string nextCondition = PredictNextCondition(todayWeather.Condition);
-
-            var forecast = new WeatherData
-            {
-                Date = DateTime.UtcNow.AddDays(1).ToString("yyyy-MM-dd"),
-                Condition = nextCondition,
-                AvgTempC = todayWeather.AvgTempC,
-                MaxWindKph = todayWeather.MaxWindKph,
-                Icon = GetWeatherIcon(nextCondition)
-            };
+            WeatherData forecast = ForecastWeather(pastWeather);
 
             return Ok(new { today = todayWeather, forecast = forecast });
         }
 
-        private string PredictNextCondition(string currentCondition)
+        private WeatherData ForecastWeather(List<WeatherData> pastWeather)
         {
+            string nextCondition;
+            double nextTemp;
+            double nextWind;
+            
+            bool isConsistent = pastWeather.GroupBy(w => w.Condition).Any(g => g.Count() == 3);
             int chance = random.Next(100);
 
-            // 70% eséllyel marad azonos
-            if (chance < 70)
-                return currentCondition;
+            if (isConsistent)
+            {
+                // Azonos időjárás esetén
+                string consistentCondition = pastWeather.GroupBy(w => w.Condition).OrderByDescending(g => g.Count()).First().Key;
+                double avgTemp = pastWeather.Average(w => w.AvgTempC);
+                double avgWind = pastWeather.Average(w => w.MaxWindKph);
 
-            // 20% eséllyel javul
-            if (chance < 90)
-                return ImproveWeather(currentCondition);
+                if (chance < 70)  // 70% eséllyel marad azonos
+                {
+                    nextCondition = consistentCondition;
+                    nextTemp = avgTemp;
+                    nextWind = avgWind;
+                }
+                else if (chance < 90)  // 20% eséllyel javul
+                {
+                    nextCondition = ImproveWeather(consistentCondition);
+                    nextTemp = avgTemp + random.NextDouble() * 2 + 1;
+                    nextWind = Math.Max(0, avgWind - (random.NextDouble() * 2 + 1));
+                }
+                else  // 10% eséllyel romlik
+                {
+                    nextCondition = WorsenWeather(consistentCondition);
+                    nextTemp = avgTemp - (random.NextDouble() * 2 + 1);
+                    nextWind = avgWind + random.NextDouble() * 2 + 1;
+                }
+            }
+            else
+            {
+                // Változatos időjárás esetén véletlenszerű
+                var possibleConditions = new List<string> { "Sunny", "Partly cloudy", "Light rain", "Rain", "Light snow", "Heavy snow", "Blizzard" };
+                nextCondition = possibleConditions[random.Next(possibleConditions.Count)];
 
-            // 10% eséllyel romlik
-            return WorsenWeather(currentCondition);
+                nextTemp = pastWeather.Average(w => w.AvgTempC) + random.NextDouble() * 2 - 1;
+                nextWind = pastWeather.Average(w => w.MaxWindKph) + random.NextDouble() * 2 - 1;
+            }
+
+            // Holnapi előrejelzés adatai
+            WeatherData nextDay = new WeatherData
+            {
+                Date = DateTime.UtcNow.AddDays(1).ToString("yyyy-MM-dd"),
+                Condition = nextCondition,
+                AvgTempC = Math.Round(nextTemp, 1),  // Lekerekítés 1 tizedesjegyre
+                MaxWindKph = Math.Round(nextWind, 1),  // Lekerekítés 1 tizedesjegyre
+                Icon = GetWeatherIcon(nextCondition)
+            };
+
+            return nextDay;
+
         }
 
         private string ImproveWeather(string condition)

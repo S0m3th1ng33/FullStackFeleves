@@ -22,7 +22,7 @@ namespace WeatherForecastAPI.Services
                 try
                 {
                     var date = DateTime.UtcNow.AddDays(-i).ToString("yyyy-MM-dd");
-                    var response = await _httpClient.GetAsync($"https://api.weatherapi.com/v1/history.json?key={_apiKey}&q=Budapest&dt={date}");
+                    var response = await _httpClient.GetAsync($"http://api.weatherapi.com/v1/history.json?key={_apiKey}&q=Budapest&dt={date}");
                     if (response.IsSuccessStatusCode)
                     {
                         var content = await response.Content.ReadAsStringAsync();
@@ -31,13 +31,18 @@ namespace WeatherForecastAPI.Services
                         var condition = day.GetProperty("condition").GetProperty("text").GetString();
                         var avgTemp = day.GetProperty("avgtemp_c").GetDouble();
                         var maxWind = day.GetProperty("maxwind_kph").GetDouble();
+                        var icon = day.GetProperty("condition").GetProperty("icon").GetString();
+
+                        if (icon.StartsWith("//"))
+                            icon = "https:" + icon;
 
                         weatherDataList.Add(new WeatherData
                         {
                             Date = date,
                             Condition = condition,
                             AvgTempC = avgTemp,
-                            MaxWindKph = maxWind
+                            MaxWindKph = maxWind,
+                            Icon = icon
                         });
                     }
                     else

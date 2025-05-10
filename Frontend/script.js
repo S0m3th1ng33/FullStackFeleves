@@ -2,16 +2,16 @@ function updateBackground(condition) {
     document.body.className = ""; // Reset previous background
 
     switch (condition) {
-        case "napos":
+        case "Sunny":
             document.body.classList.add("sunny");
             break;
-        case "borult":
+        case "Cloudy":
             document.body.classList.add("cloudy");
             break;
-        case "esős":
+        case "Rain":
             document.body.classList.add("rainy");
             break;
-        case "havas":
+        case "Snow":
             document.body.classList.add("snowy");
             break;
         default:

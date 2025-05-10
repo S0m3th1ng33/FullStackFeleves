@@ -3,11 +3,28 @@ body {
     transition: background-color 0.5s ease;
 }
 
+.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.dark-mode-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
 .card {
     max-width: 400px;
     margin: auto;
     border-radius: 20px;
     background-color: #ffffff;
+}
+
+.dark-mode .card {
+    background-color: #333;
+    color: #e0e0e0;
 }
 
 .card:hover {
@@ -69,8 +86,48 @@ button:hover {
     background-color: #607d8b;
 }
 
+.dark-mode .sunny {
+    background-color: #ffa726;
+}
+
+.dark-mode .cloudy {
+    background-color: #455a64;
+}
+
+.dark-mode .foggy {
+    background-color: #37474f;
+}
+
+.dark-mode .rainy {
+    background-color: #0277bd;
+}
+
+.dark-mode .thunderstorm {
+    background-color: #212121;
+}
+
+.dark-mode .snowy {
+    background-color: #546e7a;
+}
+
+.dark-mode .sleety {
+    background-color: #616161;
+}
+
+.dark-mode .hail {
+    background-color: #455a64;
+}
+
+.dark-mode .default-weather {
+    background-color: #37474f;
+}
+
 h1, h3, p {
     margin-bottom: 10px;
+}
+
+.dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode p {
+    color: #dddcdcc7;
 }
 
 .lead {

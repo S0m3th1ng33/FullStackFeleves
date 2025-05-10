@@ -54,6 +54,20 @@ function updateBackground(condition) {
     }
 }
 
+function toggleDarkMode() {
+    const body = document.body;
+    const modeIcon = document.getElementById("mode-icon");
+    body.classList.toggle("dark-mode");
+
+    if (body.classList.contains("dark-mode")) {
+        modeIcon.src = "https://cdn-icons-png.flaticon.com/512/1164/1164954.png";
+        modeIcon.alt = "Light Mode";
+    } else {
+        modeIcon.src = "https://cdn-icons-png.flaticon.com/512/667/667421.png";
+        modeIcon.alt = "Dark Mode";
+    }
+}
+
 function updateWeather(data, prefix) {
     const conditionElem = document.getElementById(`${prefix}-condition`);
     const temperatureElem = document.getElementById(`${prefix}-temperature`);

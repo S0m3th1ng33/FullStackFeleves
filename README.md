@@ -1,2 +1,2 @@
-"# FullStackFeleves" 
-"Ez egy idoj r s-elorejelzo alkalmaz s." 
+#FullStackFeleves
+Ez egy idojaras "elorejelzo" alkalmazas

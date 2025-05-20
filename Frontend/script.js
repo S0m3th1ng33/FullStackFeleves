@@ -105,10 +105,44 @@ function updateWeather(data, prefix) {
         document.getElementById("sunset").textContent = `Napnyugta: ${data.sunset}`;
         document.getElementById("moonrise").textContent = `Holdkelte: ${data.moonrise}`;
         document.getElementById("moonset").textContent = `Holdnyugta: ${data.moonset}`;
-        document.getElementById("today-co").textContent = `Szén-monoxid: ${data.co} µg/m³`;
-        document.getElementById("today-ozone").textContent = `Ózon: ${data.ozone} µg/m³`;
-        document.getElementById("today-no2").textContent = `NO₂: ${data.no2} µg/m³`;
-        document.getElementById("today-epa").textContent = `EPA Index: ${data.epaIndex}`;
+        document.getElementById("air-co").textContent = `Szén-monoxid: ${data.co} µg/m³`;
+        document.getElementById("air-ozone").textContent = `Ózon: ${data.ozone} µg/m³`;
+        document.getElementById("air-no2").textContent = `NO₂: ${data.no2} µg/m³`;
+        document.getElementById("air-epa").textContent = `EPA Index: ${data.epaIndex}`;
+
+        const desc = document.getElementById("air-description");
+        const epa = data.epaIndex;
+
+        switch (epa) {
+            case 1:
+                desc.textContent = "Kiváló levegőminőség (EPA 1) – mindenki számára biztonságos.";
+                desc.style.color = "#2e7d32";
+                break;
+            case 2:
+                desc.textContent = "Jó levegőminőség (EPA 2) – érzékenyek is jól viselik.";
+                desc.style.color = "#388e3c";
+                break;
+            case 3:
+                desc.textContent = "Elfogadható (EPA 3) – érzékenyek számára enyhe irritáció lehetséges.";
+                desc.style.color = "#fbc02d";
+                break;
+            case 4:
+                desc.textContent = "Egészségtelen érzékenyek számára (EPA 4) – kerüld a szabadtéri tevékenységet.";
+                desc.style.color = "#f57c00";
+                break;
+            case 5:
+                desc.textContent = "Egészségtelen (EPA 5) – javasolt a beltéri tartózkodás.";
+                desc.style.color = "#d32f2f";
+                break;
+            case 6:
+                desc.textContent = "Veszélyes (EPA 6) – kerüld a kültéri tartózkodást.";
+                desc.style.color = "#b71c1c";
+                break;
+            default:
+                desc.textContent = "Nincs elérhető EPA információ.";
+                desc.style.color = "#9e9e9e";
+        }
+
     }
     updateBackground(data.condition);
 }

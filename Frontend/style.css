@@ -188,3 +188,12 @@ p {
 .container.weather-container {
     margin-top: 3rem;
 }
+
+.air-card {
+    background-color: #ffffff;
+}
+
+.dark-mode .air-card {
+    background-color: #333;
+    color: #e0e0e0;
+}

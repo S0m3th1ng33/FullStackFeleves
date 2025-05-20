@@ -447,23 +447,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ifjke\\.nuget\\packages\\": {},
+    "C:\\Users\\KerekesEn\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Egyetem\\Negyedik felev\\fullstack\\IDOJARASELOREJELZO_A2KRNB_KEREKES\\root\\Backend\\WeatherForeCast\\WeatherForecastAPI\\WeatherForecastAPI\\WeatherForecastAPI.csproj",
+      "projectUniqueName": "E:\\Egyetem\\2024-2025\\IV.Félév\\Full-stack\\IDOJARASELOREJELZO_A2KRNB_KEREKES\\root\\Backend\\WeatherForeCast\\WeatherForecastAPI\\WeatherForecastAPI\\WeatherForecastAPI.csproj",
       "projectName": "WeatherForecastAPI",
-      "projectPath": "D:\\Egyetem\\Negyedik felev\\fullstack\\IDOJARASELOREJELZO_A2KRNB_KEREKES\\root\\Backend\\WeatherForeCast\\WeatherForecastAPI\\WeatherForecastAPI\\WeatherForecastAPI.csproj",
-      "packagesPath": "C:\\Users\\ifjke\\.nuget\\packages\\",
-      "outputPath": "D:\\Egyetem\\Negyedik felev\\fullstack\\IDOJARASELOREJELZO_A2KRNB_KEREKES\\root\\Backend\\WeatherForeCast\\WeatherForecastAPI\\WeatherForecastAPI\\obj\\",
+      "projectPath": "E:\\Egyetem\\2024-2025\\IV.Félév\\Full-stack\\IDOJARASELOREJELZO_A2KRNB_KEREKES\\root\\Backend\\WeatherForeCast\\WeatherForecastAPI\\WeatherForecastAPI\\WeatherForecastAPI.csproj",
+      "packagesPath": "C:\\Users\\KerekesEn\\.nuget\\packages\\",
+      "outputPath": "E:\\Egyetem\\2024-2025\\IV.Félév\\Full-stack\\IDOJARASELOREJELZO_A2KRNB_KEREKES\\root\\Backend\\WeatherForeCast\\WeatherForecastAPI\\WeatherForecastAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\ifjke\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\KerekesEn\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -472,7 +472,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -490,8 +489,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.200"
+      }
     },
     "frameworks": {
       "net8.0": {
@@ -521,7 +519,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

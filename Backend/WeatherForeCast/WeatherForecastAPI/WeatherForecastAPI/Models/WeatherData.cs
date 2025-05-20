@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace WeatherForecastAPI.Models
 {
     public class WeatherData
@@ -13,9 +15,17 @@ namespace WeatherForecastAPI.Models
         public string Moonrise { get; set; }
         public string Moonset { get; set; }
         public string MoonPhase { get; set; }
+
+        [JsonPropertyName("co")]
         public float CO { get; set; }
+
+        [JsonPropertyName("ozone")]
         public float Ozone { get; set; }
+
+        [JsonPropertyName("no2")]
         public float NO2 { get; set; }
+
+        [JsonPropertyName("epaIndex")]
         public int EpaIndex { get; set; }
 
     }

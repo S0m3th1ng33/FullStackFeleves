@@ -105,9 +105,9 @@ function updateWeather(data, prefix) {
         document.getElementById("sunset").textContent = `Napnyugta: ${data.sunset}`;
         document.getElementById("moonrise").textContent = `Holdkelte: ${data.moonrise}`;
         document.getElementById("moonset").textContent = `Holdnyugta: ${data.moonset}`;
-        document.getElementById("today-co").textContent = `Szén-monoxid: ${data.co.toFixed(2)} µg/m³`;
-        document.getElementById("today-ozone").textContent = `Ózon: ${data.ozone.toFixed(2)} µg/m³`;
-        document.getElementById("today-no2").textContent = `NO₂: ${data.no2.toFixed(2)} µg/m³`;
+        document.getElementById("today-co").textContent = `Szén-monoxid: ${data.co} µg/m³`;
+        document.getElementById("today-ozone").textContent = `Ózon: ${data.ozone} µg/m³`;
+        document.getElementById("today-no2").textContent = `NO₂: ${data.no2} µg/m³`;
         document.getElementById("today-epa").textContent = `EPA Index: ${data.epaIndex}`;
     }
     updateBackground(data.condition);

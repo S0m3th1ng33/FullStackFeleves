@@ -32,6 +32,11 @@ namespace WeatherForecastAPI.Services
                         var avgTemp = day.GetProperty("avgtemp_c").GetDouble();
                         var maxWind = day.GetProperty("maxwind_kph").GetDouble();
                         var icon = day.GetProperty("condition").GetProperty("icon").GetString();
+                        var astro = doc.RootElement.GetProperty("forecast").GetProperty("forecastday")[0].GetProperty("astro");
+                        var windDir = day.GetProperty("maxwind_dir").GetString() ?? "Unknown";
+                        var humidity = day.TryGetProperty("avghumidity", out var humVal) ? humVal.ToString() + "%" : "N/A";
+
+
 
                         if (icon.StartsWith("//"))
                             icon = "https:" + icon;
@@ -42,7 +47,12 @@ namespace WeatherForecastAPI.Services
                             Condition = condition,
                             AvgTempC = avgTemp,
                             MaxWindKph = maxWind,
-                            Icon = icon
+                            Icon = icon,
+                            Sunrise = astro.GetProperty("sunrise").GetString(),
+                            Sunset = astro.GetProperty("sunset").GetString(),
+                            Moonrise = astro.GetProperty("moonrise").GetString(),
+                            Moonset = astro.GetProperty("moonset").GetString(),
+                            FrontInfo = avgTemp > 20 && humidity != "N/A" ? "Melegfront esélyes" : "Hidegfront esélyes"
                         });
                     }
                     else

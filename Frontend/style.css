@@ -50,11 +50,13 @@ button:hover {
     background-color: #0056b3;
 }
 
-.sunny, .clear {
+.sunny,
+.clear {
     background-color: #f9d71c;
 }
 
-.cloudy, .overcast {
+.cloudy,
+.overcast {
     background-color: #90a4ae;
 }
 
@@ -87,7 +89,7 @@ button:hover {
 }
 
 .dark-mode .sunny {
-    background-color: #ffa726;
+    background-color: #f5990ee5;
 }
 
 .dark-mode .cloudy {
@@ -99,7 +101,7 @@ button:hover {
 }
 
 .dark-mode .rainy {
-    background-color: #0277bd;
+    background-color: #0278bdc0;
 }
 
 .dark-mode .thunderstorm {
@@ -107,11 +109,11 @@ button:hover {
 }
 
 .dark-mode .snowy {
-    background-color: #546e7a;
+    background-color: #546e7ac7;
 }
 
 .dark-mode .sleety {
-    background-color: #616161;
+    background-color: #616161a9;
 }
 
 .dark-mode .hail {
@@ -122,11 +124,16 @@ button:hover {
     background-color: #37474f;
 }
 
-h1, h3, p {
+h1,
+h3,
+p {
     margin-bottom: 10px;
 }
 
-.dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode p {
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode p {
     color: #dddcdcc7;
 }
 
@@ -140,4 +147,15 @@ h1, h3, p {
 
 .fw-bold {
     font-weight: 600;
+}
+
+.dark-mode .btn-outline-primary {
+    color: #ffffff;
+    border-color: #bbbbbb;
+}
+
+.dark-mode .btn-outline-primary:hover {
+    background-color: #bbbbbb;
+    color: #121212;
+    border-color: #bbbbbb;
 }

@@ -1,20 +1,25 @@
 function updateBackground(condition) {
-    document.body.className = ""; // Reset previous background
+    const body = document.body;
+
+    // Először töröljük az összes időjáráshoz tartozó osztályt, de meghagyjuk a dark-mode-ot, ha van
+    const preserved = body.classList.contains("dark-mode") ? ["dark-mode"] : [];
+
+    body.className = preserved.join(" "); // csak a dark-mode marad, ha volt
 
     switch (condition) {
         case "Sunny":
         case "Clear":
-            document.body.classList.add("sunny");
+            body.classList.add("sunny");
             break;
         case "Partly cloudy":
         case "Cloudy":
         case "Overcast":
-            document.body.classList.add("cloudy");
+            body.classList.add("cloudy");
             break;
         case "Mist":
         case "Fog":
         case "Freezing fog":
-            document.body.classList.add("foggy");
+            body.classList.add("foggy");
             break;
         case "Patchy rain possible":
         case "Patchy light drizzle":
@@ -24,12 +29,12 @@ function updateBackground(condition) {
         case "Rain":
         case "Heavy rain":
         case "Moderate rain":
-            document.body.classList.add("rainy");
+            body.classList.add("rainy");
             break;
         case "Thunderstorm":
         case "Patchy light rain with thunder":
         case "Moderate or heavy rain with thunder":
-            document.body.classList.add("thunderstorm");
+            body.classList.add("thunderstorm");
             break;
         case "Snow":
         case "Light snow":
@@ -37,19 +42,19 @@ function updateBackground(condition) {
         case "Patchy snow":
         case "Blizzard":
         case "Snow shower":
-            document.body.classList.add("snowy");
+            body.classList.add("snowy");
             break;
         case "Sleet":
         case "Light sleet":
         case "Moderate sleet":
-            document.body.classList.add("sleety");
+            body.classList.add("sleety");
             break;
         case "Hail":
         case "Moderate or heavy hail":
-            document.body.classList.add("hail");
+            body.classList.add("hail");
             break;
         default:
-            document.body.classList.add("default-weather");
+            body.classList.add("default-weather");
             break;
     }
 }

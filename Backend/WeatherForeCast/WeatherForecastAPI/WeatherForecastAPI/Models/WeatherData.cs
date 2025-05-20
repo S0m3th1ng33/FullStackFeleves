@@ -12,5 +12,7 @@ namespace WeatherForecastAPI.Models
         public string Sunset { get; set; }
         public string Moonrise { get; set; }
         public string Moonset { get; set; }
+
+        public string MoonPhase { get; set; }
     }
 }

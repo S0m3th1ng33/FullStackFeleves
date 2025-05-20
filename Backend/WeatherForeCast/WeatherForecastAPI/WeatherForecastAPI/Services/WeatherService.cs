@@ -34,6 +34,7 @@ namespace WeatherForecastAPI.Services
                         var maxWind = day.GetProperty("maxwind_kph").GetDouble();
                         var icon = day.GetProperty("condition").GetProperty("icon").GetString();
                         var astro = doc.RootElement.GetProperty("forecast").GetProperty("forecastday")[0].GetProperty("astro");
+                        var moonPhase = astro.GetProperty("moon_phase").GetString() ?? "Unknown";
 
 
                         if (icon.StartsWith("//"))
@@ -50,6 +51,7 @@ namespace WeatherForecastAPI.Services
                             Sunset = astro.GetProperty("sunset").GetString(),
                             Moonrise = astro.GetProperty("moonrise").GetString(),
                             Moonset = astro.GetProperty("moonset").GetString(),
+                            MoonPhase = moonPhase,
                             FrontInfo = avgTemp > 20  && maxWind < 14 ? "Melegfront esélyes" : "Hidegfront esélyes"
                         });
                     }

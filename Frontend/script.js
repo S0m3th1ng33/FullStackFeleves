@@ -85,6 +85,22 @@ function updateWeather(data, prefix) {
     }
     document.getElementById(`today-front`).textContent = `Várható front: ${data.frontInfo}`;
     if (prefix === "today") {
+        const moonPhase = data.moonPhase;
+        const moonIconMap = {
+            "New Moon": "https://img.icons8.com/?size=100&id=Wdnu-edbShJS&format=png&color=000000",
+            "Waxing Crescent": "https://img.icons8.com/?size=100&id=CHn0rtZuD2M0&format=png&color=000000",
+            "First Quarter": "https://img.icons8.com/?size=100&id=cy8DHBgUJqqL&format=png&color=000000",
+            "Waxing Gibbous": "https://img.icons8.com/?size=100&id=SnlxFjy7u-4t&format=png&color=000000",
+            "Full Moon": "https://img.icons8.com/?size=100&id=NJx6Gbc4Ng7C&format=png&color=000000",
+            "Waning Gibbous": "https://img.icons8.com/?size=100&id=RLniTqU8gD1y&format=png&color=000000",
+            "Last Quarter": "https://img.icons8.com/?size=100&id=KIPHVfQWWl4R&format=png&color=000000",
+            "Waning Crescent": "https://img.icons8.com/?size=100&id=JGGPnA5MB09j&format=png&color=000000"
+        };
+        const moonIcon = document.getElementById("moon-icon");
+        if (moonIcon && moonPhase in moonIconMap) {
+            moonIcon.src = moonIconMap[moonPhase];
+            moonIcon.alt = moonPhase;
+        }
         document.getElementById("sunrise").textContent = `Napkelte: ${data.sunrise}`;
         document.getElementById("sunset").textContent = `Napnyugta: ${data.sunset}`;
         document.getElementById("moonrise").textContent = `Holdkelte: ${data.moonrise}`;

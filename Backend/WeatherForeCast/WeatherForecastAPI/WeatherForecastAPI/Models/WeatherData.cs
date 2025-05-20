@@ -7,8 +7,6 @@ namespace WeatherForecastAPI.Models
         public double AvgTempC { get; set; }
         public double MaxWindKph { get; set; }
         public string Icon { get; set; }
-        public string Humidity { get; set; }
-        public string WindDirection { get; set; }
         public string FrontInfo { get; set; }
         public string Sunrise { get; set; }
         public string Sunset { get; set; }

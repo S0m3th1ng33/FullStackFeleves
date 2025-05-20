@@ -74,23 +74,22 @@ function toggleDarkMode() {
 }
 
 function updateWeather(data, prefix) {
-    const conditionElem = document.getElementById(`${prefix}-condition`);
-    const temperatureElem = document.getElementById(`${prefix}-temperature`);
-    const windElem = document.getElementById(`${prefix}-wind`);
-    const iconElem = document.getElementById(`${prefix}-icon`);
 
-    const roundedTemp = data.avgTempC.toFixed(1);
-    const roundedWind = data.maxWindKph.toFixed(1);
-
-    conditionElem.textContent = `Időjárás: ${data.condition}`;
-    temperatureElem.textContent = `Hőmérséklet: ${roundedTemp} °C`;
-    windElem.textContent = `Szélsebesség: ${roundedWind} km/h`;
-
+    document.getElementById(`${prefix}-condition`).textContent = `Időjárás: ${data.condition}`;
+    document.getElementById(`${prefix}-temperature`).textContent = `Hőmérséklet: ${data.avgTempC.toFixed(1)} °C`;
+    document.getElementById(`${prefix}-wind`).textContent = `Szélsebesség: ${data.maxWindKph.toFixed(1)} km/h`;
     if (data.icon) {
+        const iconElem = document.getElementById(`${prefix}-icon`);
         iconElem.src = data.icon;
         iconElem.alt = data.condition;
     }
-
+    document.getElementById(`today-front`).textContent = `Várható front: ${data.frontInfo}`;
+    if (prefix === "today") {
+        document.getElementById("sunrise").textContent = `Napkelte: ${data.sunrise}`;
+        document.getElementById("sunset").textContent = `Napnyugta: ${data.sunset}`;
+        document.getElementById("moonrise").textContent = `Holdkelte: ${data.moonrise}`;
+        document.getElementById("moonset").textContent = `Holdnyugta: ${data.moonset}`;
+    }
     updateBackground(data.condition);
 }
 

@@ -23,6 +23,7 @@ namespace WeatherForecastAPI.Services
                 {
                     var date = DateTime.UtcNow.AddDays(-i).ToString("yyyy-MM-dd");
                     var response = await _httpClient.GetAsync($"http://api.weatherapi.com/v1/history.json?key={_apiKey}&q=Budapest&dt={date}");
+                    Console.WriteLine($"Válasz tartalom ({date}): {response}");
                     if (response.IsSuccessStatusCode)
                     {
                         var content = await response.Content.ReadAsStringAsync();
@@ -33,9 +34,6 @@ namespace WeatherForecastAPI.Services
                         var maxWind = day.GetProperty("maxwind_kph").GetDouble();
                         var icon = day.GetProperty("condition").GetProperty("icon").GetString();
                         var astro = doc.RootElement.GetProperty("forecast").GetProperty("forecastday")[0].GetProperty("astro");
-                        var windDir = day.GetProperty("maxwind_dir").GetString() ?? "Unknown";
-                        var humidity = day.TryGetProperty("avghumidity", out var humVal) ? humVal.ToString() + "%" : "N/A";
-
 
 
                         if (icon.StartsWith("//"))
@@ -52,7 +50,7 @@ namespace WeatherForecastAPI.Services
                             Sunset = astro.GetProperty("sunset").GetString(),
                             Moonrise = astro.GetProperty("moonrise").GetString(),
                             Moonset = astro.GetProperty("moonset").GetString(),
-                            FrontInfo = avgTemp > 20 && humidity != "N/A" ? "Melegfront esélyes" : "Hidegfront esélyes"
+                            FrontInfo = avgTemp > 20  && maxWind < 14 ? "Melegfront esélyes" : "Hidegfront esélyes"
                         });
                     }
                     else

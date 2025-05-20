@@ -22,6 +22,9 @@ namespace WeatherForecastAPI.Controllers
         {
             var pastWeather = await _weatherService.GetLastThreeDaysWeatherAsync();
 
+            if (pastWeather == null || pastWeather.Count == 0)
+                return StatusCode(500, "Nem érkeztek adatok a WeatherService-ből.");
+
             // Mai időjárás
             var todayWeather = pastWeather.First();
 

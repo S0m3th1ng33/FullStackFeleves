@@ -20,7 +20,8 @@
     </header>
     <div class="container text-center weather-container">
         <div class="row g-3 justify-content-center">
-            <div class="col-md-5">
+
+            <div class="col-md-4">
                 <div class="card weather-card shadow-lg p-4 rounded-4">
                     <div class="card-body">
                         <h2 class="card-title">Mai időjárás</h2>
@@ -28,11 +29,12 @@
                         <p id="today-condition" class="lead">Időjárás: </p>
                         <p id="today-temperature" class="lead">Hőmérséklet: </p>
                         <p id="today-wind" class="lead">Szélsebesség: </p>
+                        <p id="today-front" class="lead">Várható front: </p>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-5">
+            <div class="col-md-4">
                 <div class="card weather-card shadow-lg p-4 rounded-4">
                     <div class="card-body">
                         <h2 class="card-title">Következő napi előrejelzés</h2>
@@ -44,6 +46,19 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-4">
+                <div class="card weather-card shadow-lg p-4 rounded-4">
+                    <div class="card-body">
+                        <h3 class="card-title mb-3">Nap és Hold kellte</h3>
+                        <p id="sunrise" class="lead">Napkelte: </p>
+                        <p id="sunset" class="lead">Napnyugta: </p>
+                        <p id="moonrise" class="lead">Holdkelte: </p>
+                        <p id="moonset" class="lead">Holdnyugta: </p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

@@ -12,7 +12,11 @@ namespace WeatherForecastAPI.Models
         public string Sunset { get; set; }
         public string Moonrise { get; set; }
         public string Moonset { get; set; }
-
         public string MoonPhase { get; set; }
+        public float CO { get; set; }
+        public float Ozone { get; set; }
+        public float NO2 { get; set; }
+        public int EpaIndex { get; set; }
+
     }
 }

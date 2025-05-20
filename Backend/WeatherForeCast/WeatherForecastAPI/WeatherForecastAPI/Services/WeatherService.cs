@@ -22,7 +22,7 @@ namespace WeatherForecastAPI.Services
                 try
                 {
                     var date = DateTime.UtcNow.AddDays(-i).ToString("yyyy-MM-dd");
-                    var response = await _httpClient.GetAsync($"http://api.weatherapi.com/v1/history.json?key={_apiKey}&q=Budapest&dt={date}");
+                    var response = await _httpClient.GetAsync($"http://api.weatherapi.com/v1/history.json?key={_apiKey}&q=Budapest&dt={date}&aqi=yes");
                     Console.WriteLine($"Válasz tartalom ({date}): {response}");
                     if (response.IsSuccessStatusCode)
                     {
@@ -36,6 +36,11 @@ namespace WeatherForecastAPI.Services
                         var astro = doc.RootElement.GetProperty("forecast").GetProperty("forecastday")[0].GetProperty("astro");
                         var moonPhase = astro.GetProperty("moon_phase").GetString() ?? "Unknown";
 
+                        var airQuality = doc.RootElement.GetProperty("forecast").GetProperty("forecastday")[0].GetProperty("day").GetProperty("air_quality");
+                        var co = airQuality.GetProperty("co").GetSingle();
+                        var ozone = airQuality.GetProperty("o3").GetSingle();
+                        var no2 = airQuality.GetProperty("no2").GetSingle();
+                        var epa = airQuality.GetProperty("us-epa-index").GetInt32();
 
                         if (icon.StartsWith("//"))
                             icon = "https:" + icon;
@@ -52,6 +57,10 @@ namespace WeatherForecastAPI.Services
                             Moonrise = astro.GetProperty("moonrise").GetString(),
                             Moonset = astro.GetProperty("moonset").GetString(),
                             MoonPhase = moonPhase,
+                            CO = co,
+                            Ozone = ozone,
+                            NO2 = no2,
+                            EpaIndex = epa,
                             FrontInfo = avgTemp > 20  && maxWind < 14 ? "Melegfront esélyes" : "Hidegfront esélyes"
                         });
                     }

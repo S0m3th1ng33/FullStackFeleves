@@ -134,7 +134,8 @@ p {
 .dark-mode h2,
 .dark-mode h3,
 .dark-mode p {
-    color: #dddcdcc7;
+    color: #f0f0f0;
+    font-weight: bold;
 }
 
 .lead {
@@ -158,4 +159,33 @@ p {
     background-color: #bbbbbb;
     color: #121212;
     border-color: #bbbbbb;
+}
+
+.site-header {
+    background-color: #f0f0f0;
+    color: #000;
+    position: relative;
+    z-index: 100;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .site-header {
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+}
+
+.site-title {
+    font-weight: bold;
+    margin: 0;
+}
+
+.weather-card {
+    min-height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container.weather-container {
+    margin-top: 3rem;
 }
